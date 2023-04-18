@@ -1,6 +1,6 @@
 import sys
 from PyQt6.QtCore import Qt
-from PyQt6.QtWidgets import QMainWindow, QPushButton, QLineEdit, QGridLayout, QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel
+from PyQt6.QtWidgets import QMainWindow, QPushButton, QLineEdit, QGridLayout, QApplication, QWidget, QVBoxLayout, QHBoxLayout
 
 class Calculadora(QMainWindow):
     def __init__(self):
@@ -106,8 +106,7 @@ class Calculadora(QMainWindow):
     def creador_operacion(self, argumento):
         #Añado al visor la operacion
         self.visor.insert(argumento)
-        #Desconecto las acciones de las operaciones para que no pueda cambiarla
-
+        #Inhabilita los botones para que no se pueda modificar la operacion
         self.b_multiplicar.setEnabled(False)
         self.b_dividir.setEnabled(False)
         self.b_sumar.setEnabled(False)
@@ -160,7 +159,7 @@ class Calculadora(QMainWindow):
             for i in range(aux+1,len(operacion)):
                 valor2 += operacion[i]
             self.visor.setText(f"{int(valor1)-int(valor2)}")
-        #Desconecto la accion de los botones para no modificar el valor
+        #Inhabilita los botones para que no pueda modificarse el resultado del visor
         self.botones[0].setEnabled(False)
         self.botones[1].setEnabled(False)
         self.botones[2].setEnabled(False)
@@ -175,7 +174,9 @@ class Calculadora(QMainWindow):
     
     #Funcion que reinicializa la calculadora
     def reset(self):
+        #Actua solo si el visor no esta vacio
         if self.visor.text() != "":
+            #Habilita los botones nuevamente y limpia el visor
             self.visor.setText("")
             self.b_multiplicar.setEnabled(True)
             self.b_dividir.setEnabled(True)
