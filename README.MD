@@ -1,2 +1,2 @@
 # TODO LIST
-- Programar funcion para convertir el string en una operacion
+- ~~Programar funcion para convertir el string en una operacion~~
