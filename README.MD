@@ -3,3 +3,4 @@
 - ~~Modificar comentarios~~
 - ~~Revisar imports no usados~~
 - Verificar orden de botones
+- Manejar indeterminaciones (n/0)
