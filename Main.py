@@ -136,7 +136,10 @@ class Calculadora(QMainWindow):
                 valor1 += operacion[i]
             for i in range(aux+1,len(operacion)):
                 valor2 += operacion[i]
-            self.visor.setText(f"{int(valor1)/int(valor2)}")
+            try:
+                self.visor.setText(f"{int(valor1)/int(valor2)}")
+            except:
+                self.visor.setText(f"ERROR")
 
         #Suma
         elif operacion.count("+")>0:
